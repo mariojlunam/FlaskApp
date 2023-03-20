@@ -14,10 +14,21 @@ Please, select your points inside this area.
 You can hit the api using the endpoints
 
 QUERY IN 27700 OUTPUT 4326 (Input Coordinates in 27700 but output in 4326)
-#results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=4326
+http://127.0.0.1:5000/results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=4326
 
 QUERY IN 4326 IN
-#results?x1=-1.481803254286913&y1=53.79827838458832&x2=-1.481861940752835&y2=53.80416168334681&srid=4326
+http://127.0.0.1:5000/results?x1=-1.481803254286913&y1=53.79827838458832&x2=-1.481861940752835&y2=53.80416168334681&srid=4326)
+**
+Base URL:**
+The one set by Flask usually http://127.0.0.1:5000
+Route
+results
+Query Parameters 
+x1 (float)
+y1 (float)
+x2 (float)
+y2 (float)
+srid (1326)
 
 Or use the the UI with the form provided.
 Just go to your prefer map, select two points inside Leeds Area and fill the form with the coordinates.
