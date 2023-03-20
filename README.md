@@ -5,10 +5,10 @@ Example of a Flask App that retrieve data based in bbox build from 2 points,
 It uses spatial functionality in the backend to return valid geojson that could be used to rendered on maps
 or for different uses.
 
-Usefull when you need to display data based on the userviewport of and app.
+Usefull when you need to display data based on the userviewport of an app.
 
 Data from OS OpenRoads will be served
-To make this portable data is just served for Leeds and surrounding areas.
+to make this portable data is just served for Leeds and surrounding areas.
 Please, select your points inside this area.
 
 You can hit the api using the endpoints
@@ -19,7 +19,13 @@ QUERY IN 27700 OUTPUT 4326 (Input Coordinates in 27700 but output in 4326)
 QUERY IN 4326 IN
 #results?x1=-1.481803254286913&y1=53.79827838458832&x2=-1.481861940752835&y2=53.80416168334681&srid=4326
 
-Or use the the UI with the form
+Or use the the UI with the form provided.
+Just go to your prefer map, select two points inside Leeds Area and fill the form with the coordinates.
+Input the srid of your input coordinates, by default is 4326.
+
+To visualise the ouput, if you selected 4326, copy the geojson returned and paste in https://geojson.io/#map=2/0/20
+
+You will see your vector features rendered on the area specified built by the two points
 
 ## Installation
 
@@ -33,13 +39,16 @@ pip install virtualenv
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+cd server
+python main.py
 
 ```
 
 ## Usage
 
-```
+After running the above commands the flask server must be up and running
 
+```
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
