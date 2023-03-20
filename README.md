@@ -35,8 +35,7 @@ For Windows the binaries for spatialite are setup to be integrated with the app 
 ```bash
 git clone <repo>
 cd <repo location in your computer>
-pip install virtualenv
-virtualenv venv
+python -m virtualenv env
 source venv/bin/activate
 pip install -r requirements.txt
 cd server
