@@ -2,7 +2,7 @@
 
 Example of a Flask App that retrieve data based in bbox built from 2 points,
 
-It uses spatial functionality in the backend to return valid geojson that could be used to rendered on maps
+It uses spatial functionality in the backend to return valid geojson that could on maps
 or for different uses.
 
 Usefull when you need to display data based on the userviewport of an app.
