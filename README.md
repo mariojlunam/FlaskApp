@@ -1,4 +1,4 @@
-# Foobar
+# Spatial Query APP
 
 Example of a Flask App that retrieve data based in bbox build from 2 points,
 
