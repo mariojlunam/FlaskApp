@@ -45,8 +45,15 @@ python main.py
 
 ## Usage
 
-After running the above commands the flask server must be up and running
+After running the above commands the flask server must be up and running.
+Activate or install your env depends if you are in Linux or Windows.
 
+You can also clone the repo open the folder in VSCode, and do the following
+
+-Python: Create Environment
+- Select your interpreter (Python 3.9 suits better)
+- You will be asked to install the requirements txt file.
+- You are ready to use the app. Run the server running the main.py file
 ```
 ## Contributing
 
