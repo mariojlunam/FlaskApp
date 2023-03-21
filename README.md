@@ -1,10 +1,9 @@
 # Spatial Query APP
 
-Example of a Flask App that retrieves data and get features by bbox built from 2 points,
+Example of a Flask App that retrieve data based in bbox build from 2 points,
 
-It uses spatial functionality in the backend to return valid a geojson ready to render on a map or for some post-processing analysis
-
-Usefull when you need to display data based on the userviewport of an app, you get features based on the bbox of the user viewports.
+It uses spatial functionality in the backend to return valid geojson that could be used to rendered on maps
+or for different uses.
 
 Data from OS OpenRoads will be served as example, but this example will work for any other layer for example buildings.
 
@@ -24,14 +23,11 @@ GET /results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=27700
 
 The flask app has a form template that could be used to fill the coordinates
 
-Base URL: The one set by Flask usually http://127.0.0.1:5000
+QUERY IN 27700 OUTPUT 4326 (Input Coordinates in 27700 but output in 4326)
+#results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=4326
 
-Fill form:
---Lon Point 1 : -1.48180325428691
---Lat Point 1 : 53.79827838458832
---Lon Point 2 : -1.481861940752835
---Lat Point 2 : 53.79827838458832
---srid : 4326
+QUERY IN 4326 IN
+#results?x1=-1.481803254286913&y1=53.79827838458832&x2=-1.481861940752835&y2=53.80416168334681&srid=4326
 
 You can go to your prefer map and select two points inside Leeds Area and fill the form with the coordinates.
 Input the srid of your input coordinates, by default is 4326.
@@ -69,17 +65,11 @@ python -m  pytest --log-cli-level=INFO
 
 After running the above commands the flask server must be up and running
 
-Activate or install your env depends if you are in Linux or Windows.
+-Python: Create Environment
 
-You can also clone the repo open the folder in VSCode (if you have the python extension installed), and do the following
-
-- Python: Create Environment
-- Select venv
 - Select your interpreter (Python 3.9 suits better)
 - You will be asked to install the requirements txt file.
-- You are ready to use the app. Run the server running the main.py file in server folder
-
-```
+- You are ready to use the app. Run the server running the main.py file
 
 ```
 
@@ -93,6 +83,8 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+```
 
 ```
 
