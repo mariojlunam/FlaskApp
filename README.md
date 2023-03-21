@@ -2,7 +2,7 @@
 
 Example of a Flask App that retrieves data and get features by bbox built from 2 points,
 
-It uses spatial functionality in the backend to return valid a geojson ready to render on a map or for some post-processing analysis
+It uses spatial functionality in the backend to return valid a geojson ready to be rendered on a map or for some post-processing analysis
 
 Usefull when you need to display data based on the userviewport of an app, you get features based on the bbox of the user viewports.
 
@@ -15,10 +15,11 @@ REQUEST
 
 For example you can output data in 4326, using as input you lat/lon points
 
-GET /results/?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=4326
+- GET /results/?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=4326
 
 Or you can input coordinates in any srid, just specified the query parameter srid
-GET /results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=27700
+
+- GET /results?x1=436139.8&y1=434547.0&x2=434141.2&y2=433689.0&srid=27700
 
 ## Using via form
 
@@ -27,13 +28,14 @@ The flask app has a form template that could be used to fill the coordinates
 Base URL: The one set by Flask usually http://127.0.0.1:5000
 
 Fill form:
---Lon Point 1 : -1.48180325428691
---Lat Point 1 : 53.79827838458832
---Lon Point 2 : -1.481861940752835
---Lat Point 2 : 53.79827838458832
---srid : 4326
 
-You can go to your prefer map and select two points inside Leeds Area and fill the form with the coordinates.
+- Lon Point 1 : -1.48180325428691
+- Lat Point 1 : 53.79827838458832
+- Lon Point 2 : -1.481861940752835
+- Lat Point 2 : 53.79827838458832
+- srid : 4326
+
+You can go to your prefered map and select two points inside Leeds Area and fill the form with the coordinates.
 Input the srid of your input coordinates, by default is 4326.
 
 To visualise the output, if you selected 4326, copy the geojson returned and paste in https://geojson.io/#map=2/0/20
