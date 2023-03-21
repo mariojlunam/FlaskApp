@@ -59,7 +59,7 @@ python main.py
 
 ## Tests
 
-Some simple unit example are provided under the test folder it uses the pytest test framework
+Some simple unit tests example are provided under the test folder it uses the pytest test framework
 
 ```bash
 cd server
