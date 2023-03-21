@@ -71,8 +71,6 @@ python -m  pytest --log-cli-level=INFO
 After running the above commands the flask server must be up and running.
 Activate or install your env depends if you are in Linux or Windows.
 
-Activate or install your env depends if you are in Linux or Windows.
-
 You can also clone the repo open the folder in VSCode (if you have the python extension installed), and do the following
 
 - Python: Create Environment
