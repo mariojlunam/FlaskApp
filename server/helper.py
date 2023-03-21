@@ -1,6 +1,11 @@
+"""
+Helper module with functions that performs part of the 
+computation of another function 
+
+"""
 
 
-def build_geojson(values: tuple) -> dict:
+def build_feature(values: tuple) -> dict:
     """
     Function to build a valid feature
     Params: 

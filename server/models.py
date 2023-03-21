@@ -3,6 +3,7 @@ from geoalchemy2 import Geometry
 
 # Base class
 
+
 class Base:
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)

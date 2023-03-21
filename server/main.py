@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 from core import create_app
 from forms import BboxForm
 from models import *
-from helper import build_geojson
+from helper import build_feature
 from sql_template import ROADS_QUERY
 
 load_dotenv()
-    
+
 # Spatialite path to add spatial functionalities to sqlite
 spatialite_path = os.getenv("SPATIALITE_PATH")
 os.environ["PATH"] = f"{spatialite_path};{os.environ['PATH']}"
@@ -22,22 +22,27 @@ app = create_app("default")
 
 # add extension spatialite to sqlite3
 with app.app_context():
+
+    # This listens to db connection event and load spatialite
     @event.listens_for(db.engine, "connect")
     def load_spatialite(dbapi_conn, connection_record):
         dbapi_conn.enable_load_extension(True)
         dbapi_conn.load_extension("mod_spatialite")
 
+
 @app.errorhandler(404)
 def page_not_found(e):
-    return "Page not found, please see list of current routes"
+    return "Page not found"
 
 
 @app.route("/", methods=["POST", "GET"])
 def query_data():
-
+    """
+    Route for form to query data
+    """
     # Instance the BboxForm class
     query_form = BboxForm()
-    
+
     if request.method == "POST" and query_form.validate():
         lon1 = query_form.x1.data
         lat1 = query_form.y1.data
@@ -47,13 +52,16 @@ def query_data():
 
         # Redirect to results if form is validated
         return redirect(url_for("results", x1=lon1, y1=lat1, x2=lon2, y2=lat2, srid=srid))
+
     else:
         return render_template("query.html", title="Query", form=query_form)
 
 
 @app.route("/results", methods=["GET"])
 def results():
-
+    """
+    Route for results 
+    """
     # Query Parameters from url request
     lon1 = request.args.get("x1", type=float)
     lat1 = request.args.get("y1", type=float)
@@ -76,9 +84,9 @@ def results():
     # From query sanitise output to build geojson
     values = [(json.loads(row.geom), json.loads(row.props)) for row in results]
 
-    # Build features collection
+    # Build features collection, populate the fetatures using our build_feature helper
     geojson = {"type": "FeatureCollection",
-               "features": list(map(build_geojson, values))}
+               "features": list(map(build_feature, values))}
 
     # Return a valid geojson, jsonify add 'application/json' header for the response
     return jsonify(geojson)
