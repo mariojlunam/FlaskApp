@@ -22,8 +22,6 @@ app = create_app("default")
 
 # add extension spatialite to sqlite3
 with app.app_context():
-
-    # This listens to db connection event and load spatialite
     @event.listens_for(db.engine, "connect")
     def load_spatialite(dbapi_conn, connection_record):
         dbapi_conn.enable_load_extension(True)
@@ -37,9 +35,6 @@ def page_not_found(e):
 
 @app.route("/", methods=["POST", "GET"])
 def query_data():
-    """
-    Route for form to query data
-    """
     # Instance the BboxForm class
     query_form = BboxForm()
 
@@ -59,9 +54,6 @@ def query_data():
 
 @app.route("/results", methods=["GET"])
 def results():
-    """
-    Route for results 
-    """
     # Query Parameters from url request
     lon1 = request.args.get("x1", type=float)
     lat1 = request.args.get("y1", type=float)

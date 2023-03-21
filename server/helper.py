@@ -1,7 +1,6 @@
 """
 Helper module with functions that performs part of the 
 computation of another function 
-
 """
 
 
