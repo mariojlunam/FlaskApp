@@ -12,5 +12,6 @@ ROADS_QUERY = text(""" SELECT
                         FROM Roads
                         WHERE
                         -- OS Roads dataset is on 27700
+                        -- For Postgis I would use ST_MakeEnvelope with the bounding box operator
                         ST_EnvIntersects(Transform(Roads.geom, :srid),:x1, :y1, :x2, :y2)
                     """)
