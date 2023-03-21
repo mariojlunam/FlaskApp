@@ -29,10 +29,10 @@ Base URL: The one set by Flask usually http://127.0.0.1:5000
 
 Fill form:
 
-- Lon Point 1 : -1.48180325428691
-- Lat Point 1 : 53.79827838458832
-- Lon Point 2 : -1.481861940752835
-- Lat Point 2 : 53.79827838458832
+- Lon Point 1 : -1.5626099971661915
+- Lat Point 1 : 53.77225329316374
+- Lon Point 2 : -1.5563662575695218
+- Lat Point 2 : 53.833908650297474
 - srid : 4326
 
 You can go to your prefered map and select two points inside Leeds Area and fill the form with the coordinates.
